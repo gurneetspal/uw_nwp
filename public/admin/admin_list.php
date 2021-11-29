@@ -25,7 +25,7 @@ $students = mysqli_fetch_all($result, MYSQLI_ASSOC);
 	
 	<div class="row" style="background:white;"> <!-- NEW STUDENT BUTTON-->
 		<div class="col-lg-12" style="text-align:left;" >
-			<a href="../homepage.php" class=""><span class="glyphicon glyphicon-arrow-left"></span> &nbsp Back</a> &nbsp &nbsp <a href="../admin/admin_insert_form.php" class="btn btn-primary btn-md active"><span class="glyphicon glyphicon-plus"></span> &nbsp Add a new user to the portal</a>
+			<a href="../homepage.php" class="" title="Back to homepage"><span class="glyphicon glyphicon-arrow-left"></span> &nbsp Back</a> &nbsp &nbsp <a href="../admin/admin_insert_form.php" class="btn btn-primary btn-md active"><span class="glyphicon glyphicon-plus"></span> &nbsp Add a new user to the portal</a>
 		
 		</div>
 		
@@ -53,7 +53,7 @@ $students = mysqli_fetch_all($result, MYSQLI_ASSOC);
 	
 	
 	<div class="col-md-6" style="margin-top:20px;">
-		<input type="text" id="myInput" class="form-control col-md-6 " onkeyup="myFunction()" placeholder="Search by any column name">
+		<input type="text" id="myInput" class="form-control col-md-6 " title="Enter the keywords to search.." onkeyup="myFunction()" placeholder="Search by any column name">
 		</div>
 		
 		<div class="row" style="background:white; margin-top:30px;"> <!-- STUDENT LIST-->

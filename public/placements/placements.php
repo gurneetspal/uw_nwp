@@ -1,6 +1,7 @@
 <?php
 include "../../private/header.php";
 include "../../private/db.php";
+session_start();
 
 $sql = "SELECT * FROM placements ORDER BY placement_id";
 $result = mysqli_query($conn, $sql);
@@ -32,14 +33,35 @@ $placements = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 <body>
  <main id="main" class="main">
+ 
+ <div class="row">
+ <?php
+			if(isset($_SESSION['status']))
+				
+			{
+				echo "hey";
+				?>
+				<div class="alert alert-success" role="alert">
+					<?php echo $_SESSION['status'];  ?>
+				</div>
+		<?php
+				
+				unset($_SESSION['status']);
+			}
+		?>
+</div>
+ 
 	<div class="row">
 		<h1><span style="color:grey">Homepage /</span> Placements</h1>
+		
+		
+		
 		<hr>
 	</div>
 	
 	
 	<div class="col-lg-12" style="text-align:left; margin-bottom:20px;" >
-	<a href="../homepage.php" class=""><span class="glyphicon glyphicon-arrow-left"></span> &nbsp Back</a> &nbsp &nbsp <a href="add_new_hospital.php" class="btn btn-primary btn-md active"><span class="glyphicon glyphicon-plus"></span> &nbsp Add a new Hospital</a>&nbsp &nbsp <a href="hospital_edit.php" class="btn btn-primary btn-md active"><span class="glyphicon glyphicon-list"></span> &nbsp Edit hospital details</a>
+	<a href="../homepage.php" class=""><span class="glyphicon glyphicon-arrow-left"></span> &nbsp Back</a> &nbsp &nbsp <a href="add_new_hospital.php" class="btn btn-primary btn-md active"><span class="glyphicon glyphicon-plus"></span> &nbsp Add a new Hospital</a>&nbsp &nbsp <a href="hospital_edit.php" class="btn btn-primary btn-md active"><span class="glyphicon glyphicon-list"></span> &nbsp Edit hospital details</a>&nbsp &nbsp <a href="auto_place.php" class="btn btn-primary btn-md active"><span class="glyphicon glyphicon-list"></span> &nbsp Auto Placements</a>
 		</div>	
 		<hr>
 		
