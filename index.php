@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <style>
 .login-container{
     margin-top: 5%;
@@ -64,7 +67,17 @@
                     <h3>Admin Panel Login</h3>
                     <form action="public/admin/admin_login_db.php" method="post" >
                         <div class="form-group">
-                            <input type="text" name = "username" class="form-control" placeholder="Your username" value="" required />
+						<?php
+						if (isset($_SESSION['err']))
+						{
+						?>
+							<b><span style="color:red; text-align:center;"><?php echo $_SESSION['err']; ?> </span></b>
+						<?php
+						}
+						   session_unset();
+						?>
+						
+                            <input type="text" name = "username" class="form-control" placeholder="Your user id" value="" required />
                         </div>
                         <div class="form-group">
                             <input type="password" name="pass" class="form-control" placeholder="Your password" value=""  required/>

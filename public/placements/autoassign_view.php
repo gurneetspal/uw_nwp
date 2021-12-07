@@ -80,6 +80,7 @@ include "../../private/db.php";
 				<th>Student<i class='fa fa-fw fa-sort'></th>
 				<th>Instructor<i class='fa fa-fw fa-sort'></th>
 				<th>Hospital, Department, Unit<i class='fa fa-fw fa-sort'></th>
+				<th>Setup timings</th>
 			</tr>
 			<?php
 				$sql = "SELECT * FROM tmp_placements";
@@ -92,6 +93,7 @@ include "../../private/db.php";
 				<td><?php echo $r['student']; ?></td>
 				<td><?php echo $r['instructor']; ?></td>
 				<td><?php echo $r['hospital']; ?></td>
+				<td><input type="text" placeholder="MM:HH" required></td>
 			</tr>
 			<?php
 				}

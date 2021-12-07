@@ -38,6 +38,7 @@ include "db.php"
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+ 
 </head>
 
 <body>
@@ -294,33 +295,33 @@ include "db.php"
       <li class="nav-heading">Pages</li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="../public/admin/admin_list.php">
+        <a class="nav-link collapsed" href="../admin/admin_list.php">
           <span class="glyphicon glyphicon-user"></span>&nbsp <span>Admin Staff</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="../public/students/student.php">
+        <a class="nav-link collapsed" href="../students/student.php">
           <span class="glyphicon glyphicon-book"></span> &nbsp <span>Student Portal</span>
         </a>
       </li>
 	   <li class="nav-item">
-        <a class="nav-link collapsed" href="../public/school/school.php">
+        <a class="nav-link collapsed" href="../school/school.php">
           <span class="glyphicon glyphicon-education" ></span> &nbsp <span>School Portal</span>
         </a>
       </li>
 	   <li class="nav-item">
-        <a class="nav-link collapsed" href="../public/terms/term.php">
+        <a class="nav-link collapsed" href="../terms/term.php">
           <span class="	glyphicon glyphicon-edit"></span> &nbsp <span>Terms Management</span>
         </a>
       </li>
 	   <li class="nav-item">
-        <a class="nav-link collapsed" href="../public/instructor/instructor.php">
+        <a class="nav-link collapsed" href="../instructor/instructor.php">
           <span class="glyphicon glyphicon-briefcase"></span> &nbsp <span>Instructor Portal</span>
         </a>
       </li>
 	   <li class="nav-item">
-        <a class="nav-link collapsed" href="../public/placements/placements.php">
+        <a class="nav-link collapsed" href="../placements/placements.php">
           <span class="glyphicon glyphicon-calendar"></span> &nbsp <span>Placement Records</span>
         </a>
       </li>
@@ -333,11 +334,22 @@ include "db.php"
       </li>
 	   <li class="nav-item">
         <a class="nav-link collapsed" href="../index.php">
-        <span style="color:red" class="glyphicon glyphicon-log-out"></span> &nbsp <span style="color:red">Logout</span>
+		<script>
+		
+			function logoutfun() {
+			  var ck = confirm("Are you sure you want to logout?");
+			 if(ck==false)
+			 {
+				 continue;
+			 }
+			}
+
+		</script>
+        <span style="color:red" class="glyphicon glyphicon-log-out"></span> &nbsp <span style="color:red" onclick="logoutfun()";>Logout</span>
         </a>
       </li>
 	  <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.php">
+        <a class="nav-link collapsed" target="_blank" href="../private/Website User Manual.pdf">
         <span class="glyphicon glyphicon-question-sign"></span> &nbsp Help
         </a>
       </li><!-- End F.A.Q Page Nav -->
