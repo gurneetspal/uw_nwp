@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(!isset($_SESSION['login']))
+{
+	header("LOCATION:../../index.php");
+}
 include "../../private/db.php";
 
 echo $uploadfile=$_FILES['uploadfile']['tmp_name'];

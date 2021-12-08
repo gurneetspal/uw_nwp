@@ -1,7 +1,10 @@
 <?php
-
-include "../../private/db.php";
 session_start();
+if(!isset($_SESSION['login']))
+{
+	header("LOCATION:../../index.php");
+}
+include "../../private/db.php";
 
   if (isset($_GET['UpdateInstructorId'])) {
     $UpdateInstructorId = $_GET['UpdateInstructorId'];

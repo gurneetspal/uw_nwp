@@ -1,4 +1,9 @@
 <?php
+session_start();
+if(!isset($_SESSION['login']))
+{
+	header("LOCATION:../../index.php");
+}
 include "../../private/db.php";
 $termid = $_POST['term_id'];
 $termname = $_POST['term_name'];

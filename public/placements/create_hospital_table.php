@@ -1,4 +1,9 @@
 <?php
+session_start();
+if(!isset($_SESSION['login']))
+{
+	header("LOCATION:../../index.php");
+}
 include "../../private/db.php";
 $hname = $_GET['name'];
 $addon = "0_";

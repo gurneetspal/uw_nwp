@@ -1,4 +1,9 @@
 <?php
+session_start();
+if(!isset($_SESSION['login']))
+{
+	header("LOCATION:../../index.php");
+}
 include "../../private/db.php";
 
 $hname = $_POST['h_name'];

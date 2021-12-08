@@ -3,7 +3,7 @@ include "db.php"
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
+<title>Nursing Scheduler</title>
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -284,9 +284,9 @@ include "db.php"
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="../public/homepage.php">
+        <a class="nav-link " href="#">
           <i class="bi bi-grid"></i>
-          <span>Homepage</span>
+          <span>Refresh</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
@@ -326,13 +326,13 @@ include "db.php"
       </li>
 	  
 	  
-	   <li class="nav-item">
+	   <!--<li class="nav-item">
         <a class="nav-link collapsed" href="student.php">
             <span class="glyphicon glyphicon-pencil"></span>&nbsp <span>Report Generation</span>
         </a>
-      </li>
+      </li>-->
 	   <li class="nav-item">
-        <a class="nav-link collapsed" href="../index.php">
+        <a class="nav-link collapsed" href="../../logout.php">
         <span style="color:red" class="glyphicon glyphicon-log-out"></span> &nbsp <span style="color:red">Logout</span>
         </a>
       </li>

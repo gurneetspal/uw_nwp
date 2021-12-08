@@ -1,4 +1,9 @@
 <?php
+session_start();
+if(!isset($_SESSION['login']))
+{
+	header("LOCATION:../../index.php");
+}
 include "../../private/db.php";
 
 $trun = "TRUNCATE TABLE temp_placements";
@@ -34,14 +39,14 @@ foreach($sqlr as $sr)
 	echo $tmp_student_f = $sr['first_name'];
 
 //INSTRUCTOR
-$sqlin = "SELECT * FROM instructors ORDER BY RAND() LIMIT 1";
-$sqlein = mysqli_query($conn, $sqlin);
-$sqlrin = mysqli_fetch_all($sqlein, MYSQLI_ASSOC);
-foreach($sqlrin as $srin)
-{
-	$tmp_instructor_id = $srin['instructor_id'];
-	echo $tmp_instructor = $srin['last_name'];
-}
+//$sqlin = "SELECT * FROM instructors ORDER BY RAND() LIMIT 1";
+//$sqlein = mysqli_query($conn, $sqlin);
+//$sqlrin = mysqli_fetch_all($sqlein, MYSQLI_ASSOC);
+//foreach($sqlrin as $srin)
+//{
+	//$tmp_instructor_id = $srin['instructor_id'];
+	//echo $tmp_instructor = $srin['last_name'];
+//}
 //////////////////////HOSPITAL
 //$selected_id = rand(0,$id_array_length);
 shuffle($ids_array);
@@ -60,11 +65,12 @@ $sele =  end($ids_array);
 				echo $tmp_hname = $row2['location'];
 				echo $tmp_time = $row2['time'];	
 				echo $tmp_term = $row2['term'];
+				echo $tmp_inst_id = $row2['instructor_id'];
 				}
 
 	//}			
 echo $h_result = $tmp_hname.','.$tmp_time,','.$tmp_term;
-$in = "INSERT INTO temp_placements (placement_id, student_number, instructor_id,location,instructor,student_last_name,student_first_name) VALUES ('$tmp_pid','$tmp_student_number','$tmp_instructor_id','$tmp_hname','$tmp_instructor','$tmp_student','$tmp_student_f')";
+$in = "INSERT INTO temp_placements (placement_id, student_number, instructor_id,location,student_last_name,student_first_name) VALUES ('$tmp_pid','$tmp_student_number','$tmp_inst_id','$tmp_hname','$tmp_student','$tmp_student_f')";
 mysqli_query($conn, $in);
 array_pop($ids_array);
 }

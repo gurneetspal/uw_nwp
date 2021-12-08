@@ -19,11 +19,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	
 	if($count == 1 && $stats == 1)
 	{
-		$_SESSION['login_user'] =$myusername;
-		header("location:../../public/homepage.php");
+		$_SESSION['login'] =$myusername;
+		header("location:../../public/homepage/homepage.php");
 	}
 	else{
+		$_SESSION['err'] = "Wrong user id or password";
 		$error="Enter Valid credentials";
+		header("LOCATION:../../index.php");
 	}
 	
 }

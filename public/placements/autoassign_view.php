@@ -1,4 +1,9 @@
 <?php
+session_start();
+if(!isset($_SESSION['login']))
+{
+	header("LOCATION:../../index.php");
+}
 include "../../private/header.php";
 include "../../private/db.php";
 ?>
@@ -103,7 +108,14 @@ include "../../private/db.php";
 			<tr>
 				<td><?php echo $r['student_last_name']; ?></td>
 				<td><?php echo $r['student_first_name']; ?></td>
-				<td><?php echo $r['instructor']; ?></td>
+				<?php
+				$sql3 = "SELECT * FROM instructors where instructor_id = ".$r['instructor_id']."";
+				$ex3 = mysqli_query($conn, $sql3);
+				while($row3 = mysqli_fetch_array($ex3))
+				{
+				?>
+				<td><?php echo $row3['last_name'].",".$row3['first_name']; ?></td>
+			<?php } ?>
 				<td><?php echo $r['location']; ?></td>
 				<?php
 				while($row2 = mysqli_fetch_array($ex2))
