@@ -37,15 +37,21 @@ include "../../private/db.php";
     td1 = tr[i].getElementsByTagName("td")[0];
 	td2 = tr[i].getElementsByTagName("td")[1];
     td3 = tr[i].getElementsByTagName("td")[2];
+    td4 = tr[i].getElementsByTagName("td")[3];
+    td5 = tr[i].getElementsByTagName("td")[4];
+    td6 = tr[i].getElementsByTagName("td")[5];
  
 
-    if (td1 && td2 && td3 ) {
+    if (td1 && td2 && td3 && td4 && td5 && td6 ) {
       txtValue1 = td1.textContent || td1.innerText;
 	  txtValue2 = td2.textContent || td2.innerText;
 	  txtValue3 = td3.textContent || td3.innerText;
+	  txtValue4 = td4.textContent || td4.innerText;
+	  txtValue5 = td5.textContent || td5.innerText;
+	  txtValue6 = td6.textContent || td6.innerText;
 
       if (txtValue1.toUpperCase().indexOf(filter) > -1||txtValue2.toUpperCase().indexOf(filter) > -1
-	  ||txtValue3.toUpperCase().indexOf(filter) > -1) {
+	  ||txtValue3.toUpperCase().indexOf(filter) > -1 ||txtValue4.toUpperCase().indexOf(filter) > -1 ||txtValue5.toUpperCase().indexOf(filter) > -1 ||txtValue6.toUpperCase().indexOf(filter) > -1) {
         tr[i].style.display = "";
       } else {
         tr[i].style.display = "none";
@@ -69,7 +75,7 @@ include "../../private/db.php";
 	<a href="autoassign_redo.php"><button class="btn btn-primary">Redo</button></a>
 	</div>
 	<div class="col-lg-3">
-	<a href="#"><button class="btn btn-primary">Submit</button></a>
+	<a href="autoassign_submit.php"><button class="btn btn-primary">Submit</button></a>
 	</div>
 	</div>	
 	
@@ -77,25 +83,37 @@ include "../../private/db.php";
 	<div class="col-lg-8 offset-lg-2">
 		<table class="table table-bordered searchable sortable" id="table1">
 			<tr>
-				<th>Student<i class='fa fa-fw fa-sort'></th>
+				<th>Student last Name<i class='fa fa-fw fa-sort'></th>
+				<th>Student First Name<i class='fa fa-fw fa-sort'></th>
 				<th>Instructor<i class='fa fa-fw fa-sort'></th>
-				<th>Hospital, Department, Unit<i class='fa fa-fw fa-sort'></th>
-				<th>Setup timings</th>
+					<th>Location<i class='fa fa-fw fa-sort'></th>
+						<th>Time<i class='fa fa-fw fa-sort'></th>
+							<th>Term<i class='fa fa-fw fa-sort'></th>
 			</tr>
 			<?php
-				$sql = "SELECT * FROM tmp_placements";
+				$sql = "SELECT * FROM temp_placements";
 				$ex = mysqli_query($conn, $sql);
 				$result = mysqli_fetch_all($ex, MYSQLI_ASSOC);
 				foreach($result as $r)
 				{
+					$sql2 = "SELECT * FROM imp_placements where placement_id = ".$r['placement_id']."";
+				$ex2 = mysqli_query($conn, $sql2);
+				
 			?>
 			<tr>
-				<td><?php echo $r['student']; ?></td>
+				<td><?php echo $r['student_last_name']; ?></td>
+				<td><?php echo $r['student_first_name']; ?></td>
 				<td><?php echo $r['instructor']; ?></td>
-				<td><?php echo $r['hospital']; ?></td>
-				<td><input type="text" placeholder="MM:HH" required></td>
+				<td><?php echo $r['location']; ?></td>
+				<?php
+				while($row2 = mysqli_fetch_array($ex2))
+				{
+					?>
+				<td><?php echo $row2['time']; ?></td>
+				<td><?php echo $row2['term']; ?></td>
 			</tr>
 			<?php
+		}
 				}
 			?>
 		</table>

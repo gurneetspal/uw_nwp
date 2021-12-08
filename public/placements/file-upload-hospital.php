@@ -14,14 +14,14 @@ foreach($objExcel->getWorksheetIterator() as $worksheet)
 
 	for($row=0;$row<=$highestrow;$row++)
 	{
-		echo $name=$worksheet->getCellByColumnAndRow(0,$row)->getValue();
-		echo $email=$worksheet->getCellByColumnAndRow(1,$row)->getValue();
-		echo $emaile=$worksheet->getCellByColumnAndRow(2,$row)->getValue();
+		echo $location=$worksheet->getCellByColumnAndRow(1,$row)->getValue();
+		echo $time=$worksheet->getCellByColumnAndRow(2,$row)->getValue();
+		echo $term=$worksheet->getCellByColumnAndRow(3,$row)->getValue();
 		echo '<br>';
 
-		if($email!='')
+		if($location!='')
 		{
-			$insertqry="INSERT INTO `excel_hospital`( `hospital_name`, `dept_name`,`unit_name`) VALUES ('$name','$email','$emaile')";
+			$insertqry="INSERT INTO `imp_placements`( `location`, `time`,`term`) VALUES ('$location','$time','$term')";
 			$insertres=mysqli_query($conn,$insertqry);
 		}
 	}

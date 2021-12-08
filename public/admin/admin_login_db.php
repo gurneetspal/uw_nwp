@@ -23,9 +23,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 		header("location:../../public/homepage.php");
 	}
 	else{
-		$_SESSION['err'] = "Wrong user id or password";
 		$error="Enter Valid credentials";
-		header("LOCATION:../../index.php");
 	}
 	
 }

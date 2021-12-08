@@ -134,8 +134,8 @@ $placements = mysqli_fetch_all($result, MYSQLI_ASSOC);
 					<th>Student name<i class='fa fa-fw fa-sort'></th>
 					<th>Student id<i class='fa fa-fw fa-sort'></th>
 					<th>Term<i class='fa fa-fw fa-sort'></th>
-					<th>Class<i class='fa fa-fw fa-sort'></th>
-					<th>Section<i class='fa fa-fw fa-sort'></th>
+					<th>Location<i class='fa fa-fw fa-sort'></th>
+					<th>Time / batch<i class='fa fa-fw fa-sort'></th>
 					<th>Comment</th>
 					<th>Placment Status</th>
 					<th>Actions</th>
@@ -144,28 +144,35 @@ $placements = mysqli_fetch_all($result, MYSQLI_ASSOC);
 				
 				<tr>
 					<?php
-					$student = "SELECT * FROM students";
+					$student = "SELECT * FROM placements";
 					$student_query = mysqli_query($conn, $student);
 					$student_result = mysqli_fetch_all($student_query, MYSQLI_ASSOC);
 					?>
 				<?php foreach($student_result as $sr)
 					{
+						$studentNumber = $sr['student_number'];
+					$student2 = "SELECT * FROM students where student_number = ".$studentNumber."";
+					$student_query2 = mysqli_query($conn, $student2);
+					//$student_result2 = mysqli_fetch_array($student_query2, MYSQLI_ASSOC);
+					while($row2 = mysqli_fetch_array($student_query2))
+				{
 					?>
-					<td><?php echo $sr['first_name'];?> <?php echo $sr['middle_name']; ?> <?php echo $sr['last_name']; ?></td>
+					<td><?php echo $row2['first_name'];?> <?php echo $row2['last_name']; ?></td>
 					<td><?php echo $sr['student_number']; ?></td>
-					
+					<?php } ?>
 					
 					<?php
-						$num = $sr['student_number'];
-						$q = "SELECT * FROM students_course_section WHERE student_number='$num'";
+						$num = $sr['placement_id'];
+
+						$q = "SELECT * FROM imp_placements WHERE placement_id='$num'";
 						$qq = mysqli_query($conn, $q);
 						$qrun = mysqli_fetch_all($qq, MYSQLI_ASSOC);
 						foreach($qrun as $qe){					
 					?>
 					
-					<td><?php echo $sr ['start_term']; ?></td>
-					<td><?php echo $qe['class']; ?></td>
-					<td><?php echo $qe['section']; ?></td>
+					<td><?php echo $qe['term']; ?></td>
+					<td><?php echo $qe['location']; ?></td>
+					<td><?php echo $qe['time']; ?></td>
 						<?php } ?>
 					
 						
@@ -191,7 +198,7 @@ $placements = mysqli_fetch_all($result, MYSQLI_ASSOC);
 					</td>
 					<td>
 					<?php
-						$stat = "SELECT * FROM placements WHERE student_number='$num'";
+						$stat = "SELECT * FROM placements WHERE student_number='$stnum'";
 						$state = mysqli_query($conn, $stat);
 						$statr = mysqli_fetch_all($state, MYSQLI_ASSOC);
 						?>

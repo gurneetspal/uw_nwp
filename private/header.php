@@ -38,7 +38,6 @@ include "db.php"
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
- 
 </head>
 
 <body>
@@ -334,22 +333,11 @@ include "db.php"
       </li>
 	   <li class="nav-item">
         <a class="nav-link collapsed" href="../index.php">
-		<script>
-		
-			function logoutfun() {
-			  var ck = confirm("Are you sure you want to logout?");
-			 if(ck==false)
-			 {
-				 continue;
-			 }
-			}
-
-		</script>
-        <span style="color:red" class="glyphicon glyphicon-log-out"></span> &nbsp <span style="color:red" onclick="logoutfun()";>Logout</span>
+        <span style="color:red" class="glyphicon glyphicon-log-out"></span> &nbsp <span style="color:red">Logout</span>
         </a>
       </li>
 	  <li class="nav-item">
-        <a class="nav-link collapsed" target="_blank" href="../private/Website User Manual.pdf">
+        <a class="nav-link collapsed" href="pages-faq.php">
         <span class="glyphicon glyphicon-question-sign"></span> &nbsp Help
         </a>
       </li><!-- End F.A.Q Page Nav -->

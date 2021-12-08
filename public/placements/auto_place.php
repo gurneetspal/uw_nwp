@@ -55,21 +55,20 @@ include "../../private/db.php";
 		<tr>
 			<th>Student Number / Name</th>
 			<th>Instructor Number / Name</th>
-			<th>Hospital Name</th>
-			<th>Department Name</th>
-			<th>Unit Name</th>
+			<th>Hospital Name -- Time -- Term</th>
+			
 		</tr>
 		<tr>
 		<td>
 		<?php
-					$sql = "SELECT * FROM excel_student";
+					$sql = "SELECT * FROM students";
 					$sqle = mysqli_query($conn, $sql);
 					$sqlr = mysqli_fetch_all($sqle, MYSQLI_ASSOC);
 					foreach($sqlr as $sr)
 					{
 						?>
 			
-				<?php echo $sr['student_number']; ?> / <?php echo $sr['name']; ?>
+				<?php echo $sr['student_number']; ?> / <?php echo $sr['last_name']; ?>
 				<br>
 				<?php		
 					}
@@ -78,14 +77,14 @@ include "../../private/db.php";
 			</td>
 			<td>
 			<?php
-					$sql = "SELECT * FROM excel_instructor";
+					$sql = "SELECT * FROM instructors";
 					$sqle = mysqli_query($conn, $sql);
 					$sqlr = mysqli_fetch_all($sqle, MYSQLI_ASSOC);
 					foreach($sqlr as $sr)
 					{
 						?>
 			
-				<?php echo $sr['instructor_number']; ?> / <?php echo $sr['name']; ?>
+				<?php echo $sr['instructor_id']; ?> / <?php echo $sr['last_name']; ?>
 				<br>
 				<?php		
 					}
@@ -95,49 +94,19 @@ include "../../private/db.php";
 			
 			
 			
-			
+			<td>
 			<?php
-				$hospitals = "SELECT * FROM excel_hospital";
+				$hospitals = "SELECT * FROM imp_placements";
 				$ehospitals = mysqli_query($conn, $hospitals);
 				$rhospitals = mysqli_fetch_all($ehospitals, MYSQLI_ASSOC);
 				foreach($rhospitals as $h)
 				{
 			?>
-				<td><?php echo $h['hospital_name']; ?></td> <!--Hospital Name-->
-				<td><!--Department Name-->
-					<?php
-						$dept = explode(",", $h['dept_name']);
-						$value_count = count($dept);
-					?>
-					<ul style="list-style:none">
-					<?php
-					for($x = 0; $x < $value_count; $x++)
-					{
-					?>
-						<li><?php echo $dept[$x]; ?></li>
-					<?php
-							}
-					?>
-					</ul>
-					
-				</td>
-				<td><!--Department Name-->
-					<?php
-						$unit = explode(",", $h['unit_name']);
-						$value_count1 = count($unit);
-					?>
-					<ul style="list-style:none">
-					<?php
-					for($xz = 0; $xz < $value_count1; $xz++)
-					{
-					?>
-						<li><?php echo $unit[$xz]; ?></li>
-					<?php
-							}
-					?>
-					</ul>
-				</td>
+
+				<?php echo $h['location']; ?> -- <?php echo $h['time']; ?> -- <?php echo $h['term']; ?>
+				<br>
 				<?php } ?>
+			</td>
 				
 			
 		</tr>
