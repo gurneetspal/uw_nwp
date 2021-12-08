@@ -78,7 +78,7 @@ include "../../private/db.php";
                         while($row = mysqli_fetch_array($result)) 
 						{
                         ?>
-                        <option value="<?php echo $row['prov_id'];?>"><?php echo $row["province_name"];?></option>
+                        <option value="<?php echo $row['province_name'];?>"><?php echo $row["province_name"];?></option>
                         <?php
                      }
                      ?>

@@ -59,7 +59,7 @@ include "../../private/header.php"
 						
 						
                         
-                        <input type="submit" class="btn btn-primary" name="submitadmin" value="Submit">
+                        <input type="submit" class="btn btn-primary" name="submitadmin" value="Submit" onclick="return confirm('Create the new user?')">
             
                     </form>
 			

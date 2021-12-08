@@ -66,7 +66,7 @@ $placements = mysqli_fetch_all($result, MYSQLI_ASSOC);
 	
 	
 	<div class="col-lg-12" style="text-align:left; margin-bottom:20px;" >
-	<a href="../homepage.php" class=""><span class="glyphicon glyphicon-arrow-left"></span> &nbsp Back</a>&nbsp &nbsp <a href="viewMasterPlacements.php" class="btn btn-primary btn-md active"><span class="glyphicon glyphicon-list"></span> &nbsp Placement Master</a> &nbsp &nbsp <a href="add_new_hospital.php" class="btn btn-primary btn-md active"><span class="glyphicon glyphicon-plus"></span> &nbsp Add a new Hospital</a>&nbsp &nbsp <a href="hospital_edit.php" class="btn btn-primary btn-md active"><span class="glyphicon glyphicon-list"></span> &nbsp Edit hospital details</a>&nbsp &nbsp <a href="auto_place.php" class="btn btn-primary btn-md active"><span class="glyphicon glyphicon-list"></span> &nbsp Auto Placements</a>
+	<a href="../homepage.php" class=""><span class="glyphicon glyphicon-arrow-left"></span> &nbsp Back</a>&nbsp &nbsp <a href="viewMasterPlacements.php" class="btn btn-primary btn-md active"><span class="glyphicon glyphicon-list"></span> &nbsp Placement Master</a> <!--&nbsp &nbsp <a href="add_new_hospital.php" class="btn btn-primary btn-md active"><span class="glyphicon glyphicon-plus"></span> &nbsp Add a new Hospital</a>&nbsp &nbsp <a href="hospital_edit.php" class="btn btn-primary btn-md active"><span class="glyphicon glyphicon-list"></span> &nbsp Edit hospital details</a>-->&nbsp &nbsp <a href="auto_place.php" class="btn btn-primary btn-md active"><span class="glyphicon glyphicon-list"></span> &nbsp Auto Placements</a>
 		</div>	
 		<hr>
 		
@@ -233,7 +233,7 @@ $placements = mysqli_fetch_all($result, MYSQLI_ASSOC);
 					</td>
 					
 					
-					<td><a href="placement_status_change.php?id=<?php echo $num;?>"<span class="glyphicon glyphicon-refresh" style="color:red;"></span></a> &nbsp &nbsp <a href="assign_placement.php?id=<?php echo $s['confirmed_placement_id']?>"> <span class="glyphicon glyphicon-pencil" style="color:green"></span></a>
+					<td><!--<a href="placement_status_change.php?id=<?php echo $num;?>"<span class="glyphicon glyphicon-refresh" style="color:red;"></span></a> --> <a href="assign_placement.php?id=<?php echo $s['confirmed_placement_id']?>"> <span class="glyphicon glyphicon-pencil" style="color:green"></span></a>
 
                     &nbsp &nbsp<a  href="assign_placement_delete.php?id=<?php echo $s['confirmed_placement_id']?>" onclick="return confirm('Are you sure you want to delete');" <span class="glyphicon glyphicon-remove" style="color:red;"></span></a> </td>
 					</form>

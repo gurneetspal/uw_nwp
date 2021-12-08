@@ -56,7 +56,7 @@ include"../../private/db.php"
             <div class="col-12">
               <div class="card">
 
-                <div class="filter">
+              <!--  <div class="filter">
                   <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                   <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                     <li class="dropdown-header text-start">
@@ -67,7 +67,7 @@ include"../../private/db.php"
                     <li><a class="dropdown-item" href="#">This Month</a></li>
                     <li><a class="dropdown-item" href="#">This Year</a></li>
                   </ul>
-                </div>
+                </div>-->
 				
 				
 				
@@ -75,7 +75,7 @@ include"../../private/db.php"
             <div class="col-12">
               <div class="card recent-sales">
 
-                <div class="filter">
+               <!-- <div class="filter">
                   <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                   <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                     <li class="dropdown-header text-start">
@@ -86,12 +86,12 @@ include"../../private/db.php"
                     <li><a class="dropdown-item" href="#">This Month</a></li>
                     <li><a class="dropdown-item" href="#">This Year</a></li>
                   </ul>
-                </div>
+                </div>-->
 
                 <div class="card-body">
                   <h5 class="card-title">Summary <span></span></h5>
 
-                  <table class="table table-borderless datatable">
+                  <table class="table table-borderless ">
                    
                     <tbody>
                       <tr>
@@ -176,7 +176,7 @@ include"../../private/db.php"
                 <div class="card-body">
                   <h5 class="card-title">To Do List <span></span></h5>
 
-                  <table class="table table-borderless datatable">
+                  <table class="table table-borderless ">
                     <thead>
                       <tr>
                         <th scope="col">Task</th>
@@ -257,7 +257,7 @@ include"../../private/db.php"
               </ul>
             </div>
 
-            <div class="card-body">
+         <!--   <div class="card-body">
               <h5 class="card-title">Recent Activities <span></span></h5>
 
               <div class="activity">
@@ -268,7 +268,7 @@ include"../../private/db.php"
                   <div class="activity-content">
                    Added Jack as a new student
                   </div>
-                </div><!-- End activity item-->
+                </div>
 
                 <div class="activity-item d-flex">
                   <div class="activite-label">28/10</div>
@@ -276,7 +276,7 @@ include"../../private/db.php"
                   <div class="activity-content">
                     Added new instructor
                   </div>
-                </div><!-- End activity item-->
+                </div>
 
                 <div class="activity-item d-flex">
                   <div class="activite-label">27/10</div>
@@ -284,12 +284,12 @@ include"../../private/db.php"
                   <div class="activity-content">
                     Deleted a Record
                   </div>
-                </div><!-- End activity item-->
+                </div>
 
                
               </div>
 
-            </div>
+            </div>-->
           </div><!-- End Recent Activity -->
 
    
@@ -312,7 +312,7 @@ include"../../private/db.php"
               </ul>
             </div>
 
-            <div class="card-body pb-0">
+           <!-- <div class="card-body pb-0">
               <h5 class="card-title">Create a new notification <span></span></h5>
 
               <div class="news">
@@ -332,9 +332,9 @@ include"../../private/db.php"
                   <p>This notice will be visible to the registered instructors.</p>
                 </div>
 
-              </div><!-- End sidebar recent posts-->
+              </div>
 
-            </div>
+            </div>-->
           </div><!-- End News & Updates -->
 
         </div><!-- End Right side columns -->

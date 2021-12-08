@@ -153,7 +153,7 @@ include "../../private/header.php"
                         </div>
 						</div>
 						
-                        <input type="submit" class="btn btn-primary" value="Submit">
+                        <input type="submit" class="btn btn-primary" value="Submit" onclick="return confirm('Create the student?')">
                     <!--    <a href="student.php" class="btn btn-secondary ml-2">Cancel</a> -->
                     </form>
 			

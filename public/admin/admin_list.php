@@ -145,7 +145,7 @@ $students = mysqli_fetch_all($result, MYSQLI_ASSOC);
 				</td>
 				<td>
 					<!-- <a href="instructors_edit_form.php?InstructorId=<?php echo $st['instructor_id']; ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a> -->
-                  <a href="admin_status_change.php?id=<?php echo $st['admin_id']; ?>"><span class="glyphicon glyphicon-remove" style="color:red"></span></a> &nbsp &nbsp <a href="admin_status_change.php?other_id=<?php echo $st['admin_id']; ?>"><span class="glyphicon glyphicon-ok" style="color:green"></span></a>
+                  <a href="admin_status_change.php?id=<?php echo $st['admin_id']; ?>" onclick="return confirm('Chaning status to Inactive. If the status is alredy Inactive, it will not change. User will have no access to the website content Are you sure you want to proceed?')"><span class="glyphicon glyphicon-remove" style="color:red"></span></a> &nbsp &nbsp <a onclick="return confirm('Chaning status to Active. If the status is alredy Active, it will not change. User will haev access to teh contents of the website. Are you sure you want to proceed?')" href="admin_status_change.php?other_id=<?php echo $st['admin_id']; ?>"><span class="glyphicon glyphicon-ok" style="color:green"></span></a>
                                                         </td>
 			  </tr>
 			  <?php } ?>

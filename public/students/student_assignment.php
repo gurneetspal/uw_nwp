@@ -83,7 +83,7 @@ $id = $_GET['id'];
 						</div>
 						
 						
-                        <input type="submit" class="btn btn-primary" value="Enroll">
+                        <input type="submit" class="btn btn-primary" value="Enroll" onclick="return confirm('Enroll the student?')">
                     </form>
 			
 		</div>

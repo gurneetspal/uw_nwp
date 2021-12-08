@@ -81,7 +81,7 @@ $students = mysqli_fetch_all($result, MYSQLI_ASSOC);
 			  
 			   <tr>
 			    <td><span style="color:red">*</span><b>province</b></td>
-				<td><input name="province" type="text" style="color:blue; border-style:hidden; width:100%" value="<?php echo $st['prov_id']; ?>"></td>
+				<td><input name="province" type="text" style="color:blue; border-style:hidden; width:100%" value="<?php echo $st['province_name']; ?>"></td>
 			  </tr>
 			  
 			   <tr>
@@ -121,7 +121,7 @@ $students = mysqli_fetch_all($result, MYSQLI_ASSOC);
 			  
 			
 			</table>
-			 <span title="Click to submit the update"><input type="submit" class="btn btn-primary" value="Submit"></span>
+			 <span title="Click to submit the update"><input type="submit" class="btn btn-primary" value="Submit" onclick="return confirm('Submit the updates?')"></span>
 			</form> <?php } ?>
 		
 		</div>

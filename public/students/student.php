@@ -132,7 +132,7 @@ $students = mysqli_fetch_all($result, MYSQLI_ASSOC);
 					</form>
 				</td>
 				
-				<td><a href="student_change_status.php?id=<?php echo $st['student_number']; ?>"><span title="Change the status" class="glyphicon glyphicon-remove" style="color:red;"></span></a> &nbsp &nbsp <a href="student_view.php?st_num=<?php echo $st['student_number']?>"><span class="glyphicon glyphicon-eye-open" title="View student details" style="color:blue"></span></a> &nbsp &nbsp <a href="student_update_form.php?id=<?php echo $st['student_number']?>"> <span class="glyphicon glyphicon-pencil" title="Edit the student details" style="color:green"></span></a>&nbsp &nbsp <a href="student_assignment.php?id=<?php echo $st['student_number']?>"> <span class="glyphicon glyphicon-list-alt" style="color:green"></span></a></td>
+				<td><a onclick="return confirm('Change the student status to Inactive to Active to vice-versa?')" href="student_change_status.php?id=<?php echo $st['student_number']; ?>"><span title="Change the status" class="glyphicon glyphicon-remove" style="color:red;"></span></a> &nbsp &nbsp <a href="student_view.php?st_num=<?php echo $st['student_number']?>"><span class="glyphicon glyphicon-eye-open" title="View student details" style="color:blue"></span></a> &nbsp &nbsp <a href="student_update_form.php?id=<?php echo $st['student_number']?>"> <span class="glyphicon glyphicon-pencil" title="Edit the student details" style="color:green"></span></a>&nbsp &nbsp <!--<a href="student_assignment.php?id=<?php echo $st['student_number']?>"> <span class="glyphicon glyphicon-list-alt" style="color:green"></span></a></td>-->
 			  </tr>
 			  <?php } ?>
 			

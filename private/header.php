@@ -5,6 +5,7 @@ include "db.php"
 <html lang="en">
 <title>Nursing Scheduler</title>
 <head>
+<link rel="shortcut icon" href="/Nursing Project/private/image002.png" type="image/png" />
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -46,13 +47,13 @@ include "db.php"
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.php" class="logo d-flex align-items-center">
+      <a href="/Nursing Project/public/homepage/homepage.php" class="logo d-flex align-items-center">
         <span class="d-none d-lg-block">Nursing Scheduler</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
 
-    <div class="search-bar">
+   <!-- <div class="search-bar">
       <form class="search-form d-flex align-items-center" method="POST" action="#">
         <input type="text" name="query" placeholder="Search" title="Enter search keyword">
         <button type="submit" title="Search"><i class="bi bi-search"></i></button>
@@ -284,9 +285,9 @@ include "db.php"
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="#">
+        <a class="nav-link " href="/Nursing Project/public/homepage/homepage.php">
           <i class="bi bi-grid"></i>
-          <span>Refresh</span>
+          <span>Homepage</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
@@ -294,50 +295,51 @@ include "db.php"
       <li class="nav-heading">Pages</li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="../admin/admin_list.php">
+        <a class="nav-link collapsed" href="/Nursing Project/public/admin/admin_list.php">
           <span class="glyphicon glyphicon-user"></span>&nbsp <span>Admin Staff</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="../students/student.php">
+        <a class="nav-link collapsed" href="/Nursing Project/public/students/student.php">
           <span class="glyphicon glyphicon-book"></span> &nbsp <span>Student Portal</span>
         </a>
       </li>
 	   <li class="nav-item">
-        <a class="nav-link collapsed" href="../school/school.php">
+        <a class="nav-link collapsed" href="/Nursing Project/public/school/school.php">
           <span class="glyphicon glyphicon-education" ></span> &nbsp <span>School Portal</span>
         </a>
       </li>
 	   <li class="nav-item">
-        <a class="nav-link collapsed" href="../terms/term.php">
+        <a class="nav-link collapsed" href="/Nursing Project/public/terms/term.php">
           <span class="	glyphicon glyphicon-edit"></span> &nbsp <span>Terms Management</span>
         </a>
       </li>
 	   <li class="nav-item">
-        <a class="nav-link collapsed" href="../instructor/instructor.php">
+        <a class="nav-link collapsed" href="/Nursing Project/public/instructor/instructor.php">
           <span class="glyphicon glyphicon-briefcase"></span> &nbsp <span>Instructor Portal</span>
         </a>
       </li>
 	   <li class="nav-item">
-        <a class="nav-link collapsed" href="../placements/placements.php">
+        <a class="nav-link collapsed" href="/Nursing Project/public/placements/placements.php">
           <span class="glyphicon glyphicon-calendar"></span> &nbsp <span>Placement Records</span>
         </a>
       </li>
 	  
 	  
-	   <!--<li class="nav-item">
-        <a class="nav-link collapsed" href="student.php">
+	   <li class="nav-item">
+        <a class="nav-link collapsed" href="/Nursing Project/public/reports/Reports.php">
             <span class="glyphicon glyphicon-pencil"></span>&nbsp <span>Report Generation</span>
         </a>
-      </li>-->
+      </li>
 	   <li class="nav-item">
-        <a class="nav-link collapsed" href="../../logout.php">
+	  
+        <a class="nav-link collapsed" href="/Nursing Project/logout.php" onclick="return confirm('Are you sure you want to logout?')">
         <span style="color:red" class="glyphicon glyphicon-log-out"></span> &nbsp <span style="color:red">Logout</span>
         </a>
       </li>
 	  <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.php">
+        <a class="nav-link collapsed" href="/Nursing Project/private/Website User Manual.pdf" target="_blank">
         <span class="glyphicon glyphicon-question-sign"></span> &nbsp Help
         </a>
       </li><!-- End F.A.Q Page Nav -->
@@ -367,6 +369,16 @@ include "db.php"
   
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> <!-- Added later-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  
+  
+  
+  
+  
+  
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+  
+  
   
   
   
