@@ -66,7 +66,7 @@ include "../../private/db.php";
 		<tr>
 		<td>
 		<?php
-					$sql = "SELECT * FROM students";
+					$sql = "SELECT * FROM students where status = 0";
 					$sqle = mysqli_query($conn, $sql);
 					$sqlr = mysqli_fetch_all($sqle, MYSQLI_ASSOC);
 					foreach($sqlr as $sr)
@@ -101,7 +101,7 @@ include "../../private/db.php";
 			
 			<td>
 			<?php
-				$hospitals = "SELECT * FROM imp_placements";
+				$hospitals = "SELECT * FROM imp_placements where status = 0";
 				$ehospitals = mysqli_query($conn, $hospitals);
 				$rhospitals = mysqli_fetch_all($ehospitals, MYSQLI_ASSOC);
 				foreach($rhospitals as $h)

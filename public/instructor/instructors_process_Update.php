@@ -35,7 +35,7 @@ $extended_police_clearance=$_POST['police'];
 $comments=$_POST['comment'];
 $created_at=date("Y/m/d");
 
-
+$city_prov=$city.','.$province;
 
 
 
@@ -44,8 +44,7 @@ $created_at=date("Y/m/d");
       last_name='$l_name',
       uwin_email='$u_email',
       address='$h_address',
-      city='$city',
-      prov_id='$province',
+      city_prov='$city_prov',
       postal_code='$p_code',
       instructor_phone1='$phone1',
       instructor_ext1='$phone1_ext',
@@ -66,16 +65,18 @@ $created_at=date("Y/m/d");
       comments='$comments',
       updated_at='$created_at' WHERE instructor_id = '$UpdateInstructorId'";
 
-if(mysqli_query($conn, $sql)){
-            
-} else{
+if(mysqli_query($conn, $sql))
+{
+  $_SESSION['msg'] = 'Instructor updated successfully.';
+  echo "<script>window.location.href='instructor.php';</script>";
+} 
+else{
     echo "ERROR: Hush! Sorry $sql. " 
         . mysqli_error($conn);
 }
   
     // exit();
-    $_SESSION['msg'] = 'Instructor updated successfully.';
-    echo "<script>window.location.href='instructor.php';</script>";
+    
   }
 
 ?>

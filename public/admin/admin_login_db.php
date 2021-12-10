@@ -19,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	
 	if($count == 1 && $stats == 1)
 	{
-		$_SESSION['login'] =$myusername;
+		$_SESSION['login'] =$row['first_name']." ".$row['last_name'];
 		header("location:../../public/homepage/homepage.php");
 	}
 	else{

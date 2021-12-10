@@ -23,6 +23,7 @@ foreach($sqlr as $s)
 		$upr = mysqli_query($conn, $up);
 	}
 }
+}
 
 header("LOCATION:placements.php");
 ?>

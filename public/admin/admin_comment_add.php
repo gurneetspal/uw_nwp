@@ -12,7 +12,13 @@ $comm = $_POST['comment_section'];
 
 $sql = "UPDATE admin_users SET comments = '$comm' WHERE admin_id = '$id'";
 
-mysqli_query($conn, $sql);
+if(mysqli_query($conn, $sql)){
 
 header("LOCATION:admin_list.php");
+}
+else{
+
+	echo $sql.$conn;
+}
+
 ?>

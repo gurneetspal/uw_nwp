@@ -81,7 +81,7 @@ $students = mysqli_fetch_all($result, MYSQLI_ASSOC);
 			  
 			   <tr>
 			    <td><span style="color:red">*</span><b>province</b></td>
-				<td><input name="province" type="text" style="color:blue; border-style:hidden; width:100%" value="<?php echo $st['province_name']; ?>"></td>
+				<td><input name="province" type="text" style="color:blue; border-style:hidden; width:100%" value="<?php echo $st['prov_id']; ?>"></td>
 			  </tr>
 			  
 			   <tr>

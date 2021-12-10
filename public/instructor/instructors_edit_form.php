@@ -91,33 +91,29 @@ else{
                             <textarea  type="text" name="home_address" class="form-control" placeholder="Should not be more than 50 words" required><?php echo $row['address']; ?></textarea>
                      
                         </div>
+                        <?php
+                            $city=explode(",", $row['city_prov']);
+                            
+                        ?>
                         <div class="form-group">
                             <label><span style="color:red;">*</span>City</label>
-                            <input value="<?php echo $row['city']; ?>" type="text" name="city" class="form-control" placeholder="Enter city name" required>
+                            <input value="<?php echo $city[0]; ?>" type="text" name="city" class="form-control" placeholder="Enter city name" required>
                       
                         </div>
                     <!--ADD PROVINCE DETAILS HERE-->
-						
+                    <div class="form-group">
+                            <label><span style="color:red;">*</span>Province</label>
+                            <input value="<?php echo $city[1]; ?>" type="text" name="province" class="form-control" placeholder="Enter province name" required>
+                      
+                        </div>
+
                         <div class="form-group">
                             <label><span style="color:red;">*</span>Postal Code</label>
                             <input value="<?php echo $row['postal_code']; ?>" type="text" name="postalcode" class="form-control" placeholder="Enter postal code" required>
                             
                         </div>
-                        <div class="form-group">
-                            <label><span style="color:red;">*</span>Phone Number</label>
-                            <input type="text" name="phone" class="form-control" placeholder="Enter phone number" required>
-                            
-                        </div>
-                        <div class="form-group">
-                            <label>Alternate Number</label>
-                            <input type="text" name="phone1" class="form-control" placeholder="Enter alternate phone number">
-                           
-                        </div> 
-                         <div class="form-group">
-                            <label><span style="color:red;">*</span>Start Term</label>
-                            <input type="text" name="term" class="form-control" placeholder="Start term, number only" required>
-                            
-                        </div>
+                      
+                        
                         <div class="form-group">
                             <label><span style="color:red;">*</span>Contact Number</label>
                             <input value="<?php echo $row['instructor_phone1']; ?>" type="text" name="phone1" class="form-control"placeholder="Enter year number" required>

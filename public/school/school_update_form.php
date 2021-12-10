@@ -57,7 +57,7 @@ $students = mysqli_fetch_all($result, MYSQLI_ASSOC);
                      <div class="row">
                         <div class="form-group col-lg-5">
                             <label><span style="color:red;">*</span>School Address</label>
-                            <textarea type="text"  name="school_address" class="form-control"  value="<?php echo $st['school_address']; ?>"></textarea>
+                            <textarea type="text"  name="school_address" class="form-control"  value="<?php echo $st['school_address']; ?>"><?php echo $st['school_address']; ?></textarea>
                      
                         </div>
 					</div>
@@ -77,9 +77,9 @@ $students = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         <?php
                         $result = mysqli_query($conn,"SELECT * FROM provinces");
                         while($row = mysqli_fetch_array($result)) {
-                        $selected=($st['prov_id']==$row['prov_id']?"selected":"");
+                        $selected=($st['prov_id']==$row['province_name']?"selected":"");
                         ?>
-                        <option value="<?php  echo $row['prov_id'];?>" <?php if($row['prov_id']==$st['prov_id']) echo "selected"?>><?php echo $row["province_name"];?></option>
+                        <option value="<?php  echo $row['province_name'];?>" <?php if($row['province_name']==$st['prov_id']) echo "selected"?>><?php echo $row["province_name"];?></option>
                         <?php
                      }
                      ?>

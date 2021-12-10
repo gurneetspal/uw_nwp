@@ -21,7 +21,7 @@ $phone = $_POST['phone'];
 $phone1 = $_POST['phone1'];
 $term = $_POST['term'];
 $year = $_POST['year'];
-$status = $_POST['status'];
+$status = 0;
 
   $sql = "INSERT INTO students 
   (
@@ -61,14 +61,14 @@ $status = $_POST['status'];
   )";
           
         if(mysqli_query($conn, $sql)){
-            
+                $_SESSION['message']="1 Student added successfully.";		  
+                header("Location:student.php");//redirection after inserting the value 
         } else{
             echo "ERROR: Hush! Sorry $sql. " 
                 . mysqli_error($conn);
         }
           
-$_SESSION['message']="1 Student added successfully.";		  
-header("Location:student_insert_form.php");//redirection after inserting the value 
+
         // Close connection
         mysqli_close($conn);
 

@@ -19,11 +19,13 @@ $result_data = $conn->query($sql);
 $results=array();
 
 while ($row = mysqli_fetch_assoc($result_data)){ 
+
     if (!$flag) {
         // display field/column names as first row
-        echo implode("\t", array_keys($row)) . "\r\n";
+        echo implode("\t", array_keys($row))."\r\n";
         $flag = true;
     }
+
     echo implode("\t", array_values($row)) . "\r\n";
 }
 }

@@ -33,6 +33,52 @@ $placements = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <script src=
 "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
     </script>
+
+<script>
+						$(document).ready(function(){
+						   // Select all the rows in the table
+							// and get the count of the selected elements
+							 $rowCount = $("#table1 tr").length - 2;
+							 document.getElementById('count').innerHTML="No. of Placements : "+$rowCount;
+						  });
+						  
+						  		function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("table1");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td1 = tr[i].getElementsByTagName("td")[0];
+	td2 = tr[i].getElementsByTagName("td")[1];
+    td3 = tr[i].getElementsByTagName("td")[2];
+	 td4 = tr[i].getElementsByTagName("td")[3];
+ 
+
+    if (td1 && td2 && td3 && td4  ) {
+      txtValue1 = td1.textContent || td1.innerText;
+	  txtValue2 = td2.textContent || td2.innerText;
+	  txtValue3 = td3.textContent || td3.innerText;
+	   txtValue4 = td4.textContent || td4.innerText;
+
+      if (txtValue1.toUpperCase().indexOf(filter) > -1||txtValue2.toUpperCase().indexOf(filter) > -1
+	  ||txtValue3.toUpperCase().indexOf(filter) > -1 || txtValue4.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+  $rowCount = $("#table1 tr").filter(function() {
+     return $(this).css('display') !== 'none';
+ }).length-1;
+  document.getElementById('count').innerHTML="No. of Placements : "+$rowCount;
+}
+					</script>
+					
 </head>
 
 <body>
@@ -65,76 +111,25 @@ $placements = mysqli_fetch_all($result, MYSQLI_ASSOC);
 	
 	
 	<div class="col-lg-12" style="text-align:left; margin-bottom:20px;" >
-	<a href="../homepage.php" class=""><span class="glyphicon glyphicon-arrow-left"></span> &nbsp Back</a>&nbsp &nbsp <a href="viewMasterPlacements.php" class="btn btn-primary btn-md active"><span class="glyphicon glyphicon-list"></span> &nbsp Placement Master</a> &nbsp &nbsp <a href="add_new_hospital.php" class="btn btn-primary btn-md active"><span class="glyphicon glyphicon-plus"></span> &nbsp Add a new Hospital</a>&nbsp &nbsp <a href="hospital_edit.php" class="btn btn-primary btn-md active"><span class="glyphicon glyphicon-list"></span> &nbsp Edit hospital details</a>&nbsp &nbsp <a href="auto_place.php" class="btn btn-primary btn-md active"><span class="glyphicon glyphicon-list"></span> &nbsp Auto Placements</a>
+	<a href="../homepage/homepage.php" class=""><span class="glyphicon glyphicon-arrow-left"></span> &nbsp Back</a> &nbsp &nbsp <a href="insert_placement_new.php" class="btn btn-primary btn-md active"><span class="glyphicon glyphicon-plus"></span> &nbsp Add Placement</a> &nbsp &nbsp <a href="auto_place.php" class="btn btn-primary btn-md active"><span class="glyphicon glyphicon-list"></span> &nbsp Auto Placements</a>
 		</div>	
 		<hr>
 		
 		
-		<script>
-						$(document).ready(function(){
-						   // Select all the rows in the table
-							// and get the count of the selected elements
-							 $rowCount = $("#table1 tr").length - 2;
-							 document.getElementById('count_rows').innerHTML = $rowCount;
-						  });
-						  
-						  		function myFunction() {
-  // Declare variables
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("table1");
-  tr = table.getElementsByTagName("tr");
-
-  // Loop through all table rows, and hide those who don't match the search query
-  for (i = 0; i < tr.length; i++) {
-    td1 = tr[i].getElementsByTagName("td")[0];
-	td2 = tr[i].getElementsByTagName("td")[1];
-    td3 = tr[i].getElementsByTagName("td")[2];
-	 td4 = tr[i].getElementsByTagName("td")[3];
-	  td5 = tr[i].getElementsByTagName("td")[4];
- 
-
-    if (td1 && td2 && td3 && td4 && td5 ) {
-      txtValue1 = td1.textContent || td1.innerText;
-	  txtValue2 = td2.textContent || td2.innerText;
-	  txtValue3 = td3.textContent || td3.innerText;
-	   txtValue4 = td4.textContent || td4.innerText;
-	    txtValue5 = td5.textContent || td5.innerText;
-
-      if (txtValue1.toUpperCase().indexOf(filter) > -1||txtValue2.toUpperCase().indexOf(filter) > -1
-	  ||txtValue3.toUpperCase().indexOf(filter) > -1 || txtValue4.toUpperCase().indexOf(filter) > -1 || txtValue5.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
-  $rowCount = $("#table1 tr").filter(function() {
-     return $(this).css('display') !== 'none';
- }).length-1;
-  document.getElementById('count').innerHTML="No. of Rows : "+$rowCount;
-}
-					</script>
+		
 					
-					
-		<div class="row">
-		
-	<input type="text" style="width:30%; margin-left:15px;" id="myInput" class="form-control col-md-6 " onkeyup="myFunction()" placeholder="Search for any detail">
-	</div>			
-		
-		<div class="col-md-6" style="margin-top:20px">
-		
+		<div style="margin-top:20px;">
+		&nbsp&nbsp<b><span id="count"></span></b>
+		</div>
+		<div class="col-md-6" style="margin-top:20px;">
+		<input type="text" id="myInput" class="form-control col-md-6 " title="Enter the keywords to search.." onkeyup="return myFunction();" placeholder="Search by any column name">
 		</div>
 		
-		<div style="margin-top:30px;">
-			<table class="table table-bordered searchable sortable" id="table1">
+		<div class="" style="background:white; margin-top:70px;"> <!-- STUDENT LIST-->
+		<table id="table1" class="table table-striped searchable sortable">
 			
-			<tr>
 			
-			</tr>
-				
-				<tr class="item">
+				<tr class="item theader">
 					<th>Location<i class='fa fa-fw fa-sort'></th>
 					<th>Time<i class='fa fa-fw fa-sort'></th>
 					<th>Term<i class='fa fa-fw fa-sort'></th>
@@ -167,16 +162,23 @@ $placements = mysqli_fetch_all($result, MYSQLI_ASSOC);
 							$instructor1 = "SELECT * FROM instructors where instructor_id = ".$num2."";
 					$instructor1_query = mysqli_query($conn, $instructor1);
 					?>
-					<td><?php 	while ($row = mysqli_fetch_array($instructor1_query)) {
+					<td><?php 	
+                      while ($row = mysqli_fetch_array($instructor1_query)) {
+                        
    							 echo $row['last_name'].",".$row['first_name'];
-							} ?></td>
+                        
+                        
+							} 
+                    
+  
+                      ?></td>
 					
 					
 					<td>
 					<form action="assign_inst_to_placement.php?id=<?php echo $sr['placement_id']; ?>" method="post" encrypt="multipart/form-data">
 					
 						 
-						 <select name='PcID' id = 'PcID'>
+						 <select class="form-control" name='PcID' id = 'PcID'>
 						<?php
 						$sqlget = "SELECT * FROM instructors";
 							$result = mysqli_query($conn,$sqlget);
@@ -189,11 +191,12 @@ $placements = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 						?>
 
-						<input type="submit" name="submit" value="Update" />
+						<input style="color:#5e89b8; border-style:hidden; background-color:#0000;" type="submit" name="submit" value="Update" />
 							
 							</select>					
 						
-			 <td> &nbsp &nbsp <a href="placement_edit.php?st_num=<?php echo $num; ?>"><span class="glyphicon glyphicon-pencil" style="color:blue"></span></a>
+			 <td> &nbsp &nbsp <a href="placement_edit.php?st_num=<?php echo $num; ?>">
+			 Update</a>
 
 					</form>
 					</td>

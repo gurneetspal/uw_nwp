@@ -21,8 +21,17 @@ $p_code = $_POST['home_postal_code'];
 $phone = $_POST['primary_contact'];
 $phone1 = $_POST['alternate_contact'];
 $term = $_POST['start_term'];
-$year = $_POST['year_level'];
+//$year = $_POST['year_level'];
 $status = $_POST['status'];
+$statusFinal = 0;
+if($status == "ACTIVE" || $status == "active")
+{
+  $statusFinal = 1;
+}
+else
+{
+  $statusFinal = 0;
+}
 
   $sql = "UPDATE students SET
   first_name = '$f_name',
@@ -37,20 +46,19 @@ $status = $_POST['status'];
   phone1 = '$phone', 
   phone2 = '$phone1', 
   start_term = '$term', 
-  year_level = '$year',
-  status = '$status'
+  status = '$statusFinal'
   WHERE
   student_number= '$id'";
           
         if(mysqli_query($conn, $sql)){
-            
+                $_SESSION['message']="1 Student added successfully.";		  
+                header("Location:student.php");//redirection after inserting the value 
+                
         } else{
             echo "ERROR: Hush! Sorry $sql. " 
                 . mysqli_error($conn);
         }
           
-$_SESSION['message']="1 Student added successfully.";		  
-header("Location:student.php");//redirection after inserting the value 
         // Close connection
         mysqli_close($conn);
 

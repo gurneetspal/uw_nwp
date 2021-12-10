@@ -20,7 +20,7 @@ mysqli_query($conn, $trun);
 //while($counter<=$count1)
 //{
 $ids_array = array();
-$hospitalsids = "SELECT placement_id FROM imp_placements";
+$hospitalsids = "SELECT placement_id FROM imp_placements where status = 0";
 $result = mysqli_query($conn, $hospitalsids);
 while($row = mysqli_fetch_array($result))
 {
@@ -28,7 +28,7 @@ while($row = mysqli_fetch_array($result))
 }
 $id_array_length = count($ids_array);
 //STUDENT
-$sql = "SELECT * FROM students";
+$sql = "SELECT * FROM students where status = 0";
 $sqle = mysqli_query($conn, $sql);
 $sqlr = mysqli_fetch_all($sqle, MYSQLI_ASSOC);
 foreach($sqlr as $sr)
@@ -71,12 +71,19 @@ $sele =  end($ids_array);
 	//}			
 echo $h_result = $tmp_hname.','.$tmp_time,','.$tmp_term;
 $in = "INSERT INTO temp_placements (placement_id, student_number, instructor_id,location,student_last_name,student_first_name) VALUES ('$tmp_pid','$tmp_student_number','$tmp_inst_id','$tmp_hname','$tmp_student','$tmp_student_f')";
-mysqli_query($conn, $in);
-array_pop($ids_array);
+
+ if(mysqli_query($conn, $in)){
+   array_pop($ids_array);
+   header("LOCATION:autoassign_view.php");
+}
+  else{
+    echo $in.mysqli_error($conn);
+  }
+
 }
 //$counter++;		
 //}			
 		
-header("LOCATION:autoassign_view.php");
+
 
 ?>

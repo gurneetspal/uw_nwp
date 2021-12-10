@@ -8,11 +8,11 @@ include "../../private/db.php";
 
 $id = $_GET['id'];
 
-$sql = "UPDATE admin_users SET status = 0 WHERE admin_id ='$id'";
+$sql = "UPDATE admin_users SET status= CASE WHEN status='0' THEN '1' ELSE '0' END WHERE admin_id ='$id'";
 mysqli_query($conn, $sql);
 
 $o_id = $_GET['other_id'];
-$sql1 = "UPDATE admin_users SET status = 1 WHERE admin_id = '$o_id'";
+$sql1 = "delete from admin_users  WHERE admin_id = '$o_id'";
 mysqli_query($conn, $sql1);
 
 header("LOCATION:admin_list.php");

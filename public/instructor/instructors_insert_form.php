@@ -70,19 +70,8 @@ include "../../private/db.php";
                         </div>
                         <div class="form-group col-lg-3">
                             <label><span style="color:red;">*</span>Province</label>
-                            <select class="form-control" name="province">
-                        <option value="">Select Province</option>
-                        <?php
-        
-                        $result = mysqli_query($conn,"SELECT * FROM provinces");
-                        while($row = mysqli_fetch_array($result)) 
-						{
-                        ?>
-                        <option value="<?php echo $row['province_name'];?>"><?php echo $row["province_name"];?></option>
-                        <?php
-                     }
-                     ?>
-                  </select>                           
+                            <input type="text" name="province" class="form-control" placeholder="Enter province name" required>
+                        
                         </div>
 					</div>
 

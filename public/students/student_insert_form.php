@@ -84,18 +84,8 @@ include "../../private/header.php"
                         </div>
                         <div class="form-group col-lg-3">
                             <label><span style="color:red;">*</span>Province</label>
-							<select name="province" class="form-control" required>
-							<option>--Choose an option--</option>
-							<?php 
-								$prov = "SELECT * FROM provinces";
-								$prov_ex = mysqli_query($conn, $prov);
-								$prov_result = mysqli_fetch_all($prov_ex, MYSQLI_ASSOC);
-								foreach($prov_result as $pr)
-								{
-							?>
-							<option value="<?php echo $pr['province_name']; ?>"><?php echo $pr['province_name']; ?></option>
-								<?php } ?>
-							</select>
+							<input type="text" name="province" class="form-control" placeholder="Enter province name" required>
+
 
                            
                         </div>
@@ -139,18 +129,7 @@ include "../../private/header.php"
                         </div>
                    
                             
-                        
-						<div class="form-group col-lg-3">
-                            <label><span style="color:red;">*</span>Status</label>
-							
-							<select class="form-control" required name="status">
-								<option>--Choose an option--</option>
-								<option value="1">Active</option>
-								<option value="0">Inactive</option>
-							</select>
-                            
-                            
-                        </div>
+                     
 						</div>
 						
                         <input type="submit" class="btn btn-primary" value="Submit" onclick="return confirm('Create the student?')">

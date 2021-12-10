@@ -1,7 +1,12 @@
 <?php
+
+session_start();
+if(!isset($_SESSION['login']))
+{
+	header("LOCATION:../../index.php");
+}
 include "../../private/header.php";
 include "../../private/db.php";
-
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +26,7 @@ include "../../private/db.php";
 	
 	
     <div style="background:white">
-	<a onclick="history.back(-1)" class=""><span class="glyphicon glyphicon-arrow-left"></span> &nbsp Back</a>
+      <a href = "../homepage/homepage.php" class=""><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
 	        <small style="margin-top:20px" ><p><i>Note:</i> <span style="color:red;">*</span><i> means a required field.</i></p></small>
     </div>
     <div style="background:white">

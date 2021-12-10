@@ -34,49 +34,13 @@ $placements = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <script src=
 "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
     </script>
-</head>
-
-<body>
- <main id="main" class="main">
- 
- <div class="row">
- <?php
-			if(isset($_SESSION['status']))
-				
-			{
-				echo "hey";
-				?>
-				<div class="alert alert-success" role="alert">
-					<?php echo $_SESSION['status'];  ?>
-				</div>
-		<?php
-				
-				unset($_SESSION['status']);
-			}
-		?>
-</div>
- 
-	<div class="row">
-		<h1><span style="color:grey">Homepage /</span> Assigned Placements</h1>
-		
-		
-		
-		<hr>
-	</div>
 	
-	
-	<div class="col-lg-12" style="text-align:left; margin-bottom:20px;" >
-	<a href="../homepage.php" class=""><span class="glyphicon glyphicon-arrow-left"></span> &nbsp Back</a>&nbsp &nbsp <a href="viewMasterPlacements.php" class="btn btn-primary btn-md active"><span class="glyphicon glyphicon-list"></span> &nbsp Placement Master</a> <!--&nbsp &nbsp <a href="add_new_hospital.php" class="btn btn-primary btn-md active"><span class="glyphicon glyphicon-plus"></span> &nbsp Add a new Hospital</a>&nbsp &nbsp <a href="hospital_edit.php" class="btn btn-primary btn-md active"><span class="glyphicon glyphicon-list"></span> &nbsp Edit hospital details</a>-->&nbsp &nbsp <a href="auto_place.php" class="btn btn-primary btn-md active"><span class="glyphicon glyphicon-list"></span> &nbsp Auto Placements</a>
-		</div>	
-		<hr>
-		
-		
-		<script>
+	<script>
 						$(document).ready(function(){
 						   // Select all the rows in the table
 							// and get the count of the selected elements
 							 $rowCount = $("#table1 tr").length - 2;
-							 document.getElementById('count_rows').innerHTML = $rowCount;
+							 document.getElementById('count').innerHTML="No. of Placements : "+$rowCount;
 						  });
 						  
 						  		function myFunction() {
@@ -114,28 +78,60 @@ $placements = mysqli_fetch_all($result, MYSQLI_ASSOC);
   $rowCount = $("#table1 tr").filter(function() {
      return $(this).css('display') !== 'none';
  }).length-1;
-  document.getElementById('count').innerHTML="No. of Rows : "+$rowCount;
+  document.getElementById('count').innerHTML="No. of Placements : "+$rowCount;
 }
 					</script>
+</head>
+
+<body>
+ <main id="main" class="main">
+ 
+ <div class="row">
+ <?php
+			if(isset($_SESSION['status']))
+				
+			{
+				echo "hey";
+				?>
+				<div class="alert alert-success" role="alert">
+					<?php echo $_SESSION['status'];  ?>
+				</div>
+		<?php
+				
+				unset($_SESSION['status']);
+			}
+		?>
+</div>
+ 
+	<div class="row">
+		<h1>Assigned Placements</h1>
+	</div>
+	
+	
+	<div class="col-lg-12" style="text-align:left; margin-bottom:20px;" >
+	<a href="../homepage/homepage.php" class=""><span class="glyphicon glyphicon-arrow-left"></span> 
+	&nbsp Back</a>&nbsp &nbsp <a href="viewMasterPlacements.php" class="btn btn-primary btn-md active">
+		<span class="glyphicon glyphicon-list"></span> &nbsp Placement Master</a> 
+		<!--&nbsp &nbsp <a href="add_new_hospital.php" class="btn btn-primary btn-md active"><span class="glyphicon glyphicon-plus"></span> &nbsp Add a new Hospital</a>&nbsp &nbsp <a href="hospital_edit.php" class="btn btn-primary btn-md active"><span class="glyphicon glyphicon-list"></span> &nbsp Edit hospital details</a>-->
+		&nbsp &nbsp <a href="auto_place.php" class="btn btn-primary btn-md active"><span class="glyphicon glyphicon-list"></span> &nbsp Auto Placements</a>
+		</div>	
+		
+		
 					
 					
-		<div class="row">
-		
-	<input type="text" style="width:30%; margin-left:15px;" id="myInput" class="form-control col-md-6 " onkeyup="myFunction()" placeholder="Search for any detail">
-	</div>			
-		
-		<div class="col-md-6" style="margin-top:20px">
-		
+		<div style="margin-top:20px;">
+		&nbsp&nbsp<b><span id="count"></span></b>
+		</div>
+		<div class="col-md-6" style="margin-top:20px;">
+		<input type="text" id="myInput" class="form-control col-md-6 " title="Enter the keywords to search.." onkeyup="return myFunction();" placeholder="Search by any column name">
 		</div>
 		
-		<div style="margin-top:30px;">
-			<table class="table table-bordered searchable sortable" id="table1">
+		<div class="" style="background:white; margin-top:70px;"> <!-- STUDENT LIST-->
+		<table id="table1" class="table table-striped searchable sortable">
 			
-			<tr>
 			
-			</tr>
 				
-				<tr class="item">
+				<tr class="item theader">
 					<th>Student name<i class='fa fa-fw fa-sort'></th>
 					<th>Student id<i class='fa fa-fw fa-sort'></th>
 					<th>Term<i class='fa fa-fw fa-sort'></th>
@@ -186,7 +182,7 @@ $placements = mysqli_fetch_all($result, MYSQLI_ASSOC);
 					<td>
 					<form action="placement_comment_add.php?id=<?php echo $sr['student_number']; ?>" method="post" encrypt="multipart/form-data">
 					
-						<input type="text" placeholder="Enter a comment" name ="comments" 
+						<input type="text" class="form-control" style="border 1" placeholder="Enter a comment" name ="comments" 
 						<?php
 							$stnum = $sr['student_number'];
 							$c = "SELECT * FROM placement_comments WHERE student_number='$stnum'";
@@ -197,7 +193,9 @@ $placements = mysqli_fetch_all($result, MYSQLI_ASSOC);
 							 ?>
 						value="<?php echo $rr['comments']; ?>"
 							<?php } ?>						
-						style="width:100%; border-style:hidden;" > <input style="color:green; background-color:white; border-style:hidden;" type="submit" value="Add"> &nbsp <a href="placement_comment_remove.php?id=<?php echo $sr['student_number']; ?>">Remove</a>
+						style="width:100%; border-style:hidden;" > 
+						<input style="color:#5e89b8; border-style:hidden; background-color:#0000;" 
+						type="submit" value="Add"> &nbsp <a href="placement_comment_remove.php?id=<?php echo $sr['student_number']; ?>">Remove</a>
 			 
 					</form>
 					</td>
@@ -233,9 +231,12 @@ $placements = mysqli_fetch_all($result, MYSQLI_ASSOC);
 					</td>
 					
 					
-					<td><!--<a href="placement_status_change.php?id=<?php echo $num;?>"<span class="glyphicon glyphicon-refresh" style="color:red;"></span></a> --> <a href="assign_placement.php?id=<?php echo $s['confirmed_placement_id']?>"> <span class="glyphicon glyphicon-pencil" style="color:green"></span></a>
+					<td><!--<a href="placement_status_change.php?id=<?php echo $num;?>"<span class="glyphicon glyphicon-refresh" style="color:red;"></span></a> --> 
+					<a href="assign_placement.php?id=<?php echo $s['confirmed_placement_id']?>"> 
+					Update</span></a>
 
-                    &nbsp &nbsp<a  href="assign_placement_delete.php?id=<?php echo $s['confirmed_placement_id']?>" onclick="return confirm('Are you sure you want to delete');" <span class="glyphicon glyphicon-remove" style="color:red;"></span></a> </td>
+                    &nbsp &nbsp<a  href="assign_placement_delete.php?id=<?php echo $s['confirmed_placement_id']?>&StudentId=<?php  echo $sr['student_number']?>&Placement_id=<?php echo $qe['placement_id']?>" onclick="return confirm('Are you sure you want to delete');"> 
+					Delete</span></a> </td>
 					</form>
 					
 				</tr>
@@ -246,10 +247,8 @@ $placements = mysqli_fetch_all($result, MYSQLI_ASSOC);
 			</table>			
 		
 		</div>
-		<hr>
 		
 		
-	</div>
  
  </main>
 	
